@@ -11,5 +11,13 @@ Implemented methods:
 ### Examples
 Check the file controllerPID_test.py for a simple test.
 
+**PID control set point and noise rejection plot**
+
+![image1](https://cloud.githubusercontent.com/assets/13961654/12492658/91740c6a-c081-11e5-9767-141eb5123e7e.png)
+
+** Frequency response plot **
+
+![image2](https://cloud.githubusercontent.com/assets/13961654/12492639/7b4f73fc-c081-11e5-9ab2-2e1267b49967.png)
+
 ### License
 GNU GPL 3.0 check the license file for more information
