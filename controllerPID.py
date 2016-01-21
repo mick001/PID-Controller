@@ -6,7 +6,7 @@
 @title: controllerPID.py
 @description:
 
-    Simple implementation of a PID controller.
+    Simple implementation of a PID controller for a closed loop control system.
     As of now by setting either Ki or Kd equal to zero you can use, respectively
     a PD or a PI controller. If you set all three the parameters then you'll be 
     using a PID.
@@ -87,18 +87,27 @@ class PID():
         
         # Last error
         self.last_error = 0
+        
+        # Last y measured
+        self.last_y = 0
     
         # Anti windup        
         self.windupMax = windupMax
     
     def output(self,y_measured):
 
-        """ Calculate PID output value 
+        """ 
+            Calculate PID output value 
             
             Formula:
 
             outValue(t) = kd * e(t) + ki * cumulativesum(e(t) * dt) + kd * de(t)/dt
-        
+            
+            Note:
+            if the set point is constant, then de(t)/dt = -dy/dt
+            this little tweak helps us avoiding impulsive terms (spikes) due to 
+            the derivative of the error (since the error changes instantly when
+            switching the set point, its derivative ends up being infinite).        
         """
         
         # Calculate current error
@@ -115,7 +124,7 @@ class PID():
             # I term            
             self.iTerm += self.ki * error * dt
             # D term
-            self.dTerm = self.kd * (error - self.last_error)/dt
+            self.dTerm = self.kd * (self.last_y - y_measured)/dt
             
             # Check for windup problems if anti-windup is enabled
             self.antiWindUp()
@@ -133,14 +142,21 @@ class PID():
     
     def antiWindUp(self):
 
-        """ Anti wind-up """
+        """ 
+            Anti wind-up 
+    
+            As far as the anti wind-up system is concerned, I implemented it as 
+            it is explained in most control theory books. It only operates on 
+            the integral term. It does not cap the proportional and the 
+            derivative terms.
+        """
         
         if self.windupMax != 0:
             if self.iTerm > self.windupMax:
                 self.iTerm = self.windupMax
             elif self.iTerm < -self.windupMax:
                 self.iTerm = -self.windupMax
-                
+    
     def transferFunction(self,N=15):
         
         """ PID transfer function """        
