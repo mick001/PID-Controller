@@ -15,7 +15,7 @@ Check the file controllerPID_test.py for a simple test.
 
 ![figure_3](https://cloud.githubusercontent.com/assets/13961654/12498056/fcea2cc2-c09f-11e5-9946-3d149246bad8.png)
 
-** Frequency response plot **
+**Frequency response plot**
 
 ![image2](https://cloud.githubusercontent.com/assets/13961654/12492639/7b4f73fc-c081-11e5-9ab2-2e1267b49967.png)
 
