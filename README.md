@@ -13,7 +13,7 @@ Check the file controllerPID_test.py for a simple test.
 
 **PID control set point and noise rejection plot**
 
-![image1](https://cloud.githubusercontent.com/assets/13961654/12492658/91740c6a-c081-11e5-9767-141eb5123e7e.png)
+![figure_3](https://cloud.githubusercontent.com/assets/13961654/12498056/fcea2cc2-c09f-11e5-9946-3d149246bad8.png)
 
 ** Frequency response plot **
 
