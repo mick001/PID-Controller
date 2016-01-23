@@ -60,7 +60,7 @@ outs_ = []
 noise_ = []
 
 # Control loop (finite loop)
-for i in range(1,150):
+for i in range(1,250):
     
     # Calculate PID output
     output = pid.output(y)
