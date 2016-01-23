@@ -129,9 +129,10 @@ class PID():
             # Check for windup problems if anti-windup is enabled
             self.antiWindUp()
             
-            # Save data for future use
+            # Update variables
             self.last_error = error
             self.old_time = self.now_time
+            self.last_y = y_measured
             
             # Output value to be returned
             self.outValue = self.pTerm + self.iTerm + self.dTerm
