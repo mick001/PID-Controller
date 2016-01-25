@@ -93,6 +93,19 @@ class PID():
     
         # Anti windup        
         self.windupMax = windupMax
+        
+    def __repr__(self):
+        r = """
+        PID controller
+        ##############        
+        kp %s
+        ki %s
+        kd %s
+        Set point %s
+        Sample time %s
+        Anti windup limit %s
+        """ %(self.kp,self.ki,self.kd,self.set_point,self.sample_time,self.windupMax)
+        return r
     
     def output(self,y_measured):
 
