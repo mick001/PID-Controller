@@ -116,7 +116,7 @@ public:
 // Save an array of data to a .csv file
 void saveArray(double arrayToSave[])
 {
-    ofstream arrayData("C:\\users\\michy\\desktop\\file1.csv");
+    ofstream arrayData("C:\\users\\file1.csv");
     for(int k=0;k < 200; k++)
     {
         arrayData << arrayToSave[k] << "," << endl;
